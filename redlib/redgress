@@ -1,0 +1,165 @@
+echo 
+echo 
+echo ">>[1]************************************************************"
+echo ">> red ../bch/ta/fischer/hf.d -P3 -Tr ../bch/ta/fischer/hf1.2.risk" 
+memtime red ../bch/ta/fischer/hf.d -P3 -Tr ../bch/ta/fischer/hf1.2.risk 
+echo 
+echo 
+echo ">>[1.1]************************************************************"
+echo ">> red ../bch/ta/fischer/hf.d -A -C -F -P3 -Tr ../bch/ta/fischer/hf1.2.risk" 
+memtime red ../bch/ta/fischer/hf.d -A -C -F -P3 -Tr ../bch/ta/fischer/hf1.2.risk 
+echo 
+echo 
+echo ">>[2]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd.d -Tr -P4 ../bch/ta/csma-cd/hcd2.3.risk-free"
+memtime red ../bch/ta/csma-cd/hcd.d -P4 -Tr ../bch/ta/csma-cd/hcd2.3.risk-free 
+echo 
+echo 
+echo ">>[2.2]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd.d -A -C -F -P4 -Tr ../bch/ta/csma-cd/hcd2.3.risk-free"
+memtime red ../bch/ta/csma-cd/hcd.d -A -C -F -P4 -Tr ../bch/ta/csma-cd/hcd2.3.risk-free 
+echo 
+echo 
+echo ">>[3]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd.d -Tr -P4 -C ../bch/ta/csma-cd/hcd2.3.risk-bad"
+memtime red ../bch/ta/csma-cd/hcd.d -Tr -P4 -C ../bch/ta/csma-cd/hcd2.3.risk-bad 
+echo 
+echo 
+echo ">>[4]************************************************************"
+echo ">> red ../bch/ta/fischer/hf1.2.nZsim.d -Ti -P3 -Z ../bch/ta/fischer/hf1.2.roles" 
+memtime red ../bch/ta/fischer/hf1.2.nZsim.d -Ti -P3 -Z ../bch/ta/fischer/hf1.2.roles 
+echo 
+echo 
+echo ">>[4.1]************************************************************"
+echo ">> red ../bch/ta/fischer/hf1.2.nZsim.d -Ti -P3 ../bch/ta/fischer/hf1.2.roles" 
+memtime red ../bch/ta/fischer/hf1.2.nZsim.d -Ti -P3 ../bch/ta/fischer/hf1.2.roles 
+echo 
+echo 
+echo ">>[5]************************************************************"
+echo ">> red ../bch/ta/fischer/hf1.2.nsim.d -Ti -P4 ../bch/ta/fischer/hf1.2.roles" 
+memtime red ../bch/ta/fischer/hf1.2.nsim.d -Ti -P4 ../bch/ta/fischer/hf1.2.roles 
+echo 
+echo 
+echo ">>[6]************************************************************"
+echo ">> red ../bch/ta/fischer/hf1.2.sim.d -Tb -P5 ../bch/ta/fischer/hf1.2.roles" 
+memtime red ../bch/ta/fischer/hf1.2.sim.d -Tb -P5 ../bch/ta/fischer/hf1.2.roles 
+echo 
+echo 
+echo ">>[7]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd2.3.nZsim.d -Ti -P3 -Z ../bch/ta/csma-cd/hcd2.3.roles" 
+memtime red ../bch/ta/csma-cd/hcd2.3.nZsim.d -Ti -P3 -Z ../bch/ta/csma-cd/hcd2.3.roles 
+echo 
+echo 
+echo ">>[7.1]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd2.3.nZsim.d -Ti -P4 ../bch/ta/csma-cd/hcd2.3.roles" 
+memtime red ../bch/ta/csma-cd/hcd2.3.nZsim.d -Ti -P4 ../bch/ta/csma-cd/hcd2.3.roles 
+echo 
+echo 
+echo ">>[8]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd2.3.nsim.d -Ti -P4 ../bch/ta/csma-cd/hcd2.3.roles" 
+memtime red ../bch/ta/csma-cd/hcd2.3.nsim.d -Ti -P4 ../bch/ta/csma-cd/hcd2.3.roles 
+echo 
+echo 
+echo ">>[9]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd2.3.sim.d -Ti -P5 ../bch/ta/csma-cd/hcd2.3.roles" 
+memtime red ../bch/ta/csma-cd/hcd2.3.sim.d -Ti -P5 ../bch/ta/csma-cd/hcd2.3.roles 
+echo 
+echo 
+echo ">>[10]************************************************************"
+echo ">> red ../bch/ta/fischer/hfb.d -Tm -P3 ../bch/ta/fischer/hfb.always.seqeunce.tctl" 
+memtime red ../bch/ta/fischer/hfb.d -Tm -P3 ../bch/ta/fischer/hfb.always.sequence.tctl 
+echo 
+echo 
+echo ">>[11]************************************************************"
+echo ">> red ../bch/ta/csma-cd/hcd.d -Tm -P4 -Z ../bch/ta/csma-cd/hcd.false.retry.liveness.tctl" 
+memtime red ../bch/ta/csma-cd/hcd.d -Tm -P4 -Z ../bch/ta/csma-cd/hcd.false.retry.liveness.tctl 
+echo 
+echo 
+echo ">>[12.1:f4al]************************************************************"
+echo ">> tctctl, no segmented F, zeno ok" 
+echo ">> red -P5 -Tm -Xa -Xl hf.d hf.e.efc.ui.tctl" 
+red -P5 -Tm -Xa -Xl ../bch/ta/fischer/hf.d ../bch/ta/fischer/hf.e.efc.ui.tctl 
+echo 
+echo 
+echo "**[12.2:f4c]************************************************************"
+echo ">> no tctctl, segmented F, zeno ok" 
+echo ">> red -P4 -Tm -Xc hcd.d hcd.path.tc.tctl" 
+red -P4 -Tm -Xc ../bch/ta/csma-cd/hcd.d ../bch/ta/csma-cd/hcd.path.tc.tctl 
+echo 
+echo 
+echo "**[12.3:f4alz]************************************************************"
+echo ">> tctctl, no segmented F, no zeno" 
+echo ">> red -P4 -Tm -Xa -Xl -Z leader.d leader.path.tc.tctl" 
+red -P4 -Tm -Xa -Xl -Z ../bch/ta/leader/leader.d ../bch/ta/leader/leader.path.tc.tctl 
+echo 
+echo 
+echo "**[12.4:c4bz]************************************************************"
+echo ">> tctctl, no segmented F, no zeno"
+echo ">> red -P4 -Tm -Xc -Z hf.d hf.path.eg_ready.tctl" 
+red -P4 -Tm -Xc -Z ../bch/ta/fischer/hf.d ../bch/ta/fischer/hf.path.eg_ready.tctl 
+echo 
+echo 
+echo "**[12.5:c5al]************************************************************"
+echo ">> tctctl, no segmented F, zeno ok" 
+echo ">> red -P5 -Tm -Xa -Xl hfbs.d hfbs.segm.ag-eg_nw.tctl" 
+red -P5 -Tm -Xa -Xl ../bch/ta/fischer/hfbs.d ../bch/ta/fischer/hfbs.segm.ag-eg_nw.tctl 
+echo 
+echo 
+echo "**[12.6:c6alz]************************************************************"
+echo ">> tctctl, no segmented F, no zeno" 
+echo ">> red -P6 -Tm -Xa -Xl -Z hcd.d hcd.segm.ag-eg_idle.tctl" 
+red -P6 -Tm -Xa -Xl -Z ../bch/ta/csma-cd/hcd.d ../bch/ta/csma-cd/hcd.segm.ag-eg_idle.tctl 
+echo 
+echo 
+echo "**[12.7:c5c]************************************************************"
+echo ">> no tctctl, segmented F, zeno ok" 
+echo ">> red -P5 -Tm -Xc leader.d leader.segm.ag-af.tctl" 
+red -P5 -Tm -Xc ../bch/ta/leader/leader.d ../bch/ta/leader/leader.segm.ag-af.tctl 
+echo 
+echo 
+echo ">>[13]************************************************************"
+echo ">> red ../bch/lha/fischer/pfischer.d -Tr -P3 ../bch/lha/fischer/pfischer1.2.risk" 
+memtime red ../bch/lha/fischer/pfischer.d -Tr -P3 ../bch/lha/fischer/pfischer1.2.risk 
+echo 
+echo 
+echo ">>[14]************************************************************"
+echo ">> red ../bch/lha/nuke/rec.d -Tr -C -P4 ../bch/lha/nuke/rec.risk" 
+memtime red ../bch/lha/nuke/rec.d -Tr -C -P4 ../bch/lha/nuke/rec.risk 
+echo 
+echo 
+echo 
+echo ">>[15]************************************************************"
+echo ">> red -C -Tr ../bch/dispenser/disp5.regress.d ../bch/dispenser/disp5.regress.risk" 
+red -C -Tr ../bch/dispenser/disp5.regress.d ../bch/dispenser/disp5.regress.risk 
+echo ">> The above benchmark should generate a counter example in 14 steps."
+echo 
+echo 
+echo 
+echo ">>[16.1]************************************************************"
+echo ">> red -P4 -Ti ../bch/fair/termsag.regress.d ../bch/fair/term.wfsim" 
+red -P4 -Ti ../bch/fair/termsag.regress.d ../bch/fair/term.wfsim 
+echo ">> The above benchmark should not yield a fair simulation due to loop."
+echo 
+echo 
+echo 
+echo ">>[16.2]************************************************************"
+echo ">> red -P5 -Ti ../bch/fair/termlab.regress.d ../bch/fair/term.wfsim" 
+red -P5 -Ti ../bch/fair/termlab.regress.d ../bch/fair/term.wfsim 
+echo ">> The above benchmark should yield a fair simulation."
+echo 
+echo 
+echo 
+echo ">>[16.3]************************************************************"
+echo ">> red -P6 -Ti ../bch/fair/termieg.d ../bch/fair/term.sfsim" 
+red -P6 -Ti ../bch/fair/termieg.d ../bch/fair/term.sfsim 
+echo ">> The above benchmark should yield a fair simulation."
+echo 
+echo 
+echo 
+echo ">>[16.4]************************************************************"
+echo ">> red -P7 -Ti ../bch/fair/termtag.d ../bch/fair/term.wfsim" 
+red -P7 -Ti ../bch/fair/termtag.d ../bch/fair/term.sfsim 
+echo ">> The above benchmark should yield a fair simulation."
+echo 
+echo 
+echo 
